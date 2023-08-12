@@ -1,4 +1,5 @@
 # Cloned From https://github.com/github/gitignore/blob/main/Unity.gitignore in License Creative Commons Zero v1.0 Universal (CC0-1.0)
+## [Modified Project]
 
 # This .gitignore file should be placed at the root of your Unity project directory
 #
@@ -72,3 +73,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+## New Code
+
+*.env
