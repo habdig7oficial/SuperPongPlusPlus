@@ -20,6 +20,10 @@ public class Menu : MonoBehaviour {
 
     public int teste = 0;
 
+    public void Awake(){
+        SceneManager.LoadScene("Menu");
+    }
+
     public void Start(){
         //assets = AssetBundle.LoadFromFile("/Assets/Scenes/Game.unity");
         //assets.GetAllScenePaths();
@@ -96,7 +100,7 @@ public class Menu : MonoBehaviour {
         {
             Debug.Log("Scene2 loading: ");
             print("fghfhgy");
-            SceneManager.LoadScene("TesteScene.unity");
+            SceneManager.LoadScene("Game");
         }
     }
 }
