@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,8 @@ using TMPro;
 
 
 public class Menu : MonoBehaviour {
+
+    public AssetBundle assets;
 
     public GameObject camera;
     public GameObject canvas;
@@ -18,8 +21,13 @@ public class Menu : MonoBehaviour {
     public int teste = 0;
 
     public void Start(){
+        //assets = AssetBundle.LoadFromFile("/Assets/Scenes/Game.unity");
+        //assets.GetAllScenePaths();
+       //Path.Combine(Directory.GetCurrentDirectory(), "Assets", "Scenes")
+       var hello = Resources.Load($"{Path.Combine(Directory.GetCurrentDirectory(), "Assets", "Scenes")}");
 
-        print($"Width: {Screen.width}\nHeigth: {Screen.height}");
+        print(hello);
+
 
         camera = new GameObject("Camera", typeof(Camera)/*,typeof(AudioListener)*/);
         camera.transform.position = new Vector3(0,0,-10);
@@ -49,6 +57,7 @@ public class Menu : MonoBehaviour {
         copyrightMessage.alignment = TextAlignmentOptions.Center;
         copyrightMessage.text = msg;
 
+/*
         var buttonCameraPlace = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2 , Screen.height / 4 ,5));
         msg = $"Start";
         buttonStartObj = new GameObject($"Button - {msg}", typeof(Button), typeof(Image));
@@ -65,7 +74,7 @@ public class Menu : MonoBehaviour {
         subtext.alignment = TextAlignmentOptions.Center;
         subtext.text = msg;
 
-        var buttonStart = buttonStartObj.GetComponent<Button>();
+        var buttonStart = buttonStartObj.GetComponent<Button>();*/
 
         //print(buttonStart.GetMethods());
 
@@ -86,7 +95,8 @@ public class Menu : MonoBehaviour {
         if (GUI.Button(new Rect(Screen.width / 2.28F, Screen.height / 1.35F, 100, 30), "Start Game"))
         {
             Debug.Log("Scene2 loading: ");
-           // SceneManager.LoadScene(scenePaths[0], LoadSceneMode.Single);
+            print("fghfhgy");
+            SceneManager.LoadScene("TesteScene.unity");
         }
     }
 }
