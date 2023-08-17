@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -14,11 +15,13 @@ public class Menu : MonoBehaviour {
     public GameObject copyrightMessageObj;
     public GameObject buttonStartObj;
 
+    public int teste = 0;
+
     public void Start(){
 
         print($"Width: {Screen.width}\nHeigth: {Screen.height}");
 
-        camera = new GameObject("Camera", typeof(Camera), typeof(AudioListener));
+        camera = new GameObject("Camera", typeof(Camera)/*,typeof(AudioListener)*/);
         camera.transform.position = new Vector3(0,0,-10);
         camera.GetComponent<Camera>().orthographic = true;
 
@@ -64,12 +67,27 @@ public class Menu : MonoBehaviour {
 
         var buttonStart = buttonStartObj.GetComponent<Button>();
 
+        //print(buttonStart.GetMethods());
+
         //buttonStart.height = 1;
 
-
+        //buttonStartObj.GetComponent<Button>().onClick.AddListener(() => print("you clicked"));
     }
 
     public void Update(){
 
+
+
+        //print($"Thread Awake");
+        //SceneManager.LoadScene("Game");
+    }
+
+    public void OnGUI(){
+        if (GUI.Button(new Rect(Screen.width / 2.28F, Screen.height / 1.35F, 100, 30), "Start Game"))
+        {
+            Debug.Log("Scene2 loading: ");
+           // SceneManager.LoadScene(scenePaths[0], LoadSceneMode.Single);
+        }
     }
 }
+
